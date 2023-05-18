@@ -1,0 +1,19 @@
+id: validate_public_apis
+description: Validate public apis
+group: migration_validation
+source:
+  type: json
+  data: https://jsonplaceholder.typicode.com/photos
+  selector: ""
+destination:
+  type: json
+  data: https://gorest.co.in/public/v2/users
+  selector: ""
+tests:
+  -
+    sourceField: title
+    # transform: trim
+    destinationField: name
+  -
+    sourceField: url
+    destinationField: id

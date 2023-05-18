@@ -1,0 +1,24 @@
+# Test definition ID
+id: validate_db
+# Test definition description
+description: Validate db
+# Group to which this test belongs to
+group: db_validation
+# The query used for generating the source dataset
+source:
+  type: database
+  data: "select * from media_field_data"
+  # The source database credentials
+  database: source_db
+# The query used for generating the destination dataset
+destination:
+  type: json
+  data: https://gorest.co.in/public/v2/users
+  selector: ""
+# Test cases
+tests:
+  -
+    # Field from source datasource used in this comparison
+    sourceField: name
+    transform: replace
+    destinationField: name
